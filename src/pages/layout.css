@@ -1,0 +1,108 @@
+
+#content {
+  margin: auto;
+  width: 40%;
+  min-width: 600px;
+  min-height: 80vh;
+  padding-bottom: 15vh;
+  height: fit-content;
+
+  > * {
+    margin-top: 1.5em;
+  }
+}
+
+a {
+    color: inherit;
+}
+
+footer {
+    font-family: "Roboto Mono", monospace;
+    background: var(--color-black);
+    color: var(--color-white);
+    line-height: 1.5;
+    min-height: 10em;
+
+    display: flex;
+    flex-direction: row-reverse;
+
+    /* justify-content: right; */
+    /* justify-items: right; */
+    padding-top: 1em;
+    padding: 1em 10% 1em 10%;
+
+    > ul {
+        margin-left: 5%;
+    }
+
+    > ul li {
+        a {
+            text-decoration: none;
+        }
+        a::before {
+            content: "\00a0\00a0";
+        }
+        a:hover {
+            background-color: var(--color-white);
+            color: var(--color-black);
+            text-decoration: none;
+        }
+        a:hover::before {
+            content: "> ";
+        }
+
+        a.fake {
+            color: var(--color-gray);
+
+            > .material-symbols-outlined {
+                margin-right: 0.3em;
+                opacity: 0;
+            }
+        }
+        a.fake:hover {
+            background-color: rgba(0,0,0,0);
+
+            .material-symbols-outlined {
+                opacity: 1;
+            }
+        }
+        a.fake::before {
+            content: "";
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #content {
+        min-width: 90%;
+    }
+
+    footer {
+        display: inherit;
+
+        > ul {
+            margin-bottom: 1em;
+            margin-left: 0;
+        }
+
+        > ul li {
+            a::before {
+                content: "> ";
+            }
+            a.fake {
+                color: var(--color-gray);
+                margin-left: -0.3em;
+
+                > .material-symbols-outlined {
+                    opacity: 1;
+                }
+            }
+            a.fake:hover {
+                background-color: rgba(0,0,0,0);
+            }
+            a.fake::before {
+                content: "";
+            }
+        }
+    }
+}
